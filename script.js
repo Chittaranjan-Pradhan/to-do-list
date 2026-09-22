@@ -1,6 +1,4 @@
-
 // Get elements from HTML
-
 
 const taskInput = document.getElementById("taskInput");
 const addTaskBtn = document.getElementById("addTaskBtn");
@@ -10,13 +8,11 @@ const taskList = document.getElementById("taskList");
 
 // Task Array
 
-
 let tasks = [];
 
 
 
 // Update Task Overview
-
 
 function updateTaskCount() {
 
@@ -48,7 +44,6 @@ function updateTaskCount() {
 
 // Save Tasks
 
-
 function saveTasks() {
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -58,7 +53,6 @@ function saveTasks() {
 
 
 // Create Task Element
-
 
 function createTaskElement(task) {
 
@@ -126,9 +120,7 @@ function createTaskElement(task) {
     }
 
 
-  
     // Complete / Uncomplete
-
 
     checkbox.addEventListener("change", function() {
 
@@ -157,7 +149,6 @@ function createTaskElement(task) {
 
     // Edit Task
 
-
     editBtn.addEventListener("click", function() {
 
         const newTask = prompt(
@@ -182,7 +173,6 @@ function createTaskElement(task) {
 
     // Delete Task
 
-
     deleteBtn.addEventListener("click", function() {
 
         const index = tasks.indexOf(task);
@@ -201,13 +191,15 @@ function createTaskElement(task) {
 
         updateTaskCount();
 
+        updateEmptyMessage();
+
     });
 
 }
 
 
-// Add New Task
 
+// Add New Task
 
 addTaskBtn.addEventListener("click", function() {
 
@@ -263,11 +255,13 @@ addTaskBtn.addEventListener("click", function() {
 
     applyCurrentFilter();
 
+    updateEmptyMessage();
+
 });
 
 
-// Add Task Using Enter
 
+// Add Task Using Enter
 
 taskInput.addEventListener("keydown", function(event) {
 
@@ -282,7 +276,6 @@ taskInput.addEventListener("keydown", function(event) {
 
 
 // Sidebar Filters
-
 
 const filterButtons = document.querySelectorAll(
     ".sidebar-item[data-filter]"
@@ -313,7 +306,9 @@ filterButtons.forEach(function(button) {
         // Get selected filter
 
         currentFilter = button.dataset.filter;
+
         const taskHeading = document.getElementById("taskHeading");
+
 
         if (currentFilter === "all") {
 
@@ -331,7 +326,7 @@ filterButtons.forEach(function(button) {
 
             taskHeading.textContent = "Completed Tasks";
 
-}
+        }
 
 
         // Apply filter
@@ -343,8 +338,8 @@ filterButtons.forEach(function(button) {
 });
 
 
-// Apply Current Filter
 
+// Apply Current Filter
 
 function applyCurrentFilter() {
 
@@ -397,8 +392,44 @@ function applyCurrentFilter() {
 }
 
 
-// Load Saved Tasks
 
+// Update Empty Message
+
+function updateEmptyMessage() {
+
+    let emptyMessage = document.getElementById("emptyMessage");
+
+
+    if (tasks.length === 0) {
+
+        if (!emptyMessage) {
+
+            emptyMessage = document.createElement("p");
+
+            emptyMessage.id = "emptyMessage";
+
+            emptyMessage.textContent =
+                "No tasks yet. Add a task to get started.";
+
+            taskList.appendChild(emptyMessage);
+
+        }
+
+    } else {
+
+        if (emptyMessage) {
+
+            emptyMessage.remove();
+
+        }
+
+    }
+
+}
+
+
+
+// Load Saved Tasks
 
 function loadTasks() {
 
@@ -423,10 +454,12 @@ function loadTasks() {
 
     applyCurrentFilter();
 
+    updateEmptyMessage();
+
 }
 
 
-// Load Tasks When Page Opens
 
+// Load Tasks When Page Opens
 
 loadTasks();
