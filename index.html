@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My To-Do List</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Main Dashboard -->
+    <div class="dashboard">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <h2>My Tasks</h2>
+
+            <nav>
+
+                <button class="sidebar-item active" data-filter="all">
+                    🏠 Home
+                </button>
+
+                <button class="sidebar-item" data-filter="all">
+                    📋 All Tasks
+                </button>
+
+                <button class="sidebar-item" data-filter="active">
+                    🔵 Active
+                </button>
+
+                <button class="sidebar-item" data-filter="completed">
+                    ✅ Completed
+                </button>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button class="sidebar-item">
+                    ⚙️ Settings
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+
+            <h1>My To-Do List</h1>
+
+            <p class="subtitle">
+                Stay organized and get things done.
+            </p>
+
+
+            <!-- Input Section -->
+
+            <div class="input-section">
+
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Enter a task..."
+                >
+
+                <button id="addTaskBtn">
+                    Add
+                </button>
+
+            </div>
+            <h2 class="tasks-heading" id="taskHeading">Tasks</h2>
+            <br>
+
+
+            <!-- Task List -->
+
+            <ul id="taskList"></ul>
+
+          
+
+        </main>
+
+
+        <!-- ================= RIGHT SIDEBAR ================= -->
+
+        <aside class="overview">
+
+            <h2>Task Overview</h2>
+
+
+            <!-- Total Tasks -->
+
+            <div class="overview-card">
+
+                <span>Total Tasks</span>
+
+                <strong id="totalCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <!-- Active Tasks -->
+
+            <div class="overview-card">
+
+                <span>Active</span>
+
+                <strong id="overviewActive">
+                    0
+                </strong>
+
+            </div>
+
+
+            <!-- Completed Tasks -->
+
+            <div class="overview-card">
+
+                <span>Completed</span>
+
+                <strong id="overviewCompleted">
+                    0
+                </strong>
+
+            </div>
+
+
+            <!-- Motivation Card -->
+
+            <div class="focus-card">
+
+                <h3>Stay Focused</h3>
+
+                <p>
+                    One task at a time. Keep moving forward!
+                </p>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
