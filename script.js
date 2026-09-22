@@ -1,22 +1,22 @@
-// ===============================
+
 // Get elements from HTML
-// ===============================
+
 
 const taskInput = document.getElementById("taskInput");
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskList = document.getElementById("taskList");
 
 
-// ===============================
+
 // Task Array
-// ===============================
+
 
 let tasks = [];
 
 
-// ===============================
+
 // Update Task Overview
-// ===============================
+
 
 function updateTaskCount() {
 
@@ -45,9 +45,9 @@ function updateTaskCount() {
 }
 
 
-// ===============================
+
 // Save Tasks
-// ===============================
+
 
 function saveTasks() {
 
@@ -56,9 +56,9 @@ function saveTasks() {
 }
 
 
-// ===============================
+
 // Create Task Element
-// ===============================
+
 
 function createTaskElement(task) {
 
@@ -126,9 +126,9 @@ function createTaskElement(task) {
     }
 
 
-    // ===============================
+  
     // Complete / Uncomplete
-    // ===============================
+
 
     checkbox.addEventListener("change", function() {
 
@@ -155,9 +155,8 @@ function createTaskElement(task) {
     });
 
 
-    // ===============================
     // Edit Task
-    // ===============================
+
 
     editBtn.addEventListener("click", function() {
 
@@ -180,9 +179,9 @@ function createTaskElement(task) {
     });
 
 
-    // ===============================
+
     // Delete Task
-    // ===============================
+
 
     deleteBtn.addEventListener("click", function() {
 
@@ -207,9 +206,8 @@ function createTaskElement(task) {
 }
 
 
-// ===============================
 // Add New Task
-// ===============================
+
 
 addTaskBtn.addEventListener("click", function() {
 
@@ -268,9 +266,8 @@ addTaskBtn.addEventListener("click", function() {
 });
 
 
-// ===============================
 // Add Task Using Enter
-// ===============================
+
 
 taskInput.addEventListener("keydown", function(event) {
 
@@ -283,9 +280,9 @@ taskInput.addEventListener("keydown", function(event) {
 });
 
 
-// ===============================
+
 // Sidebar Filters
-// ===============================
+
 
 const filterButtons = document.querySelectorAll(
     ".sidebar-item[data-filter]"
@@ -346,9 +343,8 @@ filterButtons.forEach(function(button) {
 });
 
 
-// ===============================
 // Apply Current Filter
-// ===============================
+
 
 function applyCurrentFilter() {
 
@@ -401,9 +397,8 @@ function applyCurrentFilter() {
 }
 
 
-// ===============================
 // Load Saved Tasks
-// ===============================
+
 
 function loadTasks() {
 
@@ -431,8 +426,7 @@ function loadTasks() {
 }
 
 
-// ===============================
 // Load Tasks When Page Opens
-// ===============================
+
 
 loadTasks();
